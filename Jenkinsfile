@@ -18,7 +18,7 @@ node {
  
   stage ('Build') {
       //withMaven(jdk: 'java1.8', maven: 'Maven3.6.0') {
-      withMaven(jdk: 'java1.8', maven: 'Maven3.5.2 ') {  
+      withMaven(jdk: 'java1.8', maven: 'Maven3.5.2') {  
       sh 'mvn clean package'
 	      echo "**** ${GIT_COMMIT}"
 	//step($class: 'UploadBuild', tenantId: "5ade13625558f2c6688d15ce", revision: "${GIT_COMMIT}", appName: "JPetStore", requestor: "admin", id: "${newComponentVersionId}" )
