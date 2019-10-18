@@ -33,22 +33,22 @@ node {
   }
 
 	echo("************************** Test Result Upload Started to Velocity****************************")
-                        try{
-                        step([$class: 'UploadJUnitTestResult',
-                            properties: [
-                        // Need to change the path of the test result xml result required.               
-                                filePath: "target/surefire-reports/TEST-org.mybatis.jpetstore.service.OrderServiceTest.xml",
-                                tenant_id: "5ade13625558f2c6688d15ce",
-                                appName: "JPetStore-velocity",
-                                //appExtId: "4b006cdb-0e50-43f2-ac87-a7586a65389e",
-				appExtId: "acdfae67-616f-43e5-8872-2cfa3aa583de",
-				//appId: "acdfae67-616f-43e5-8872-2cfa3aa583de",    
-                                name: "Executed in JUnit - 2.0.${BUILD_NUMBER}",
-                                testSetName: "Junit Test Run from Jenkins"]
+          //              try{
+            //            step([$class: 'UploadJUnitTestResult',
+              //              properties: [
+                //        // Need to change the path of the test result xml result required.               
+                  //              filePath: "target/surefire-reports/TEST-org.mybatis.jpetstore.service.OrderServiceTest.xml",
+                    //            tenant_id: "5ade13625558f2c6688d15ce",
+                      //          appName: "JPetStore-velocity",
+                        //        //appExtId: "4b006cdb-0e50-43f2-ac87-a7586a65389e",
+			//	appExtId: "acdfae67-616f-43e5-8872-2cfa3aa583de",
+			//	//appId: "acdfae67-616f-43e5-8872-2cfa3aa583de",    
+                          //      name: "Executed in JUnit - 2.0.${BUILD_NUMBER}",
+                            //    testSetName: "Junit Test Run from Jenkins"]
                            
-                        ])}catch(e){
-                        throw e
-                        }
+                        //])}catch(e){
+                        //throw e
+                        //}
                        
             echo("************************** Test Result Uploaded Successful to Velocity****************************")
 	
