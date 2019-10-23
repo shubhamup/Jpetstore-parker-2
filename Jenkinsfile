@@ -130,7 +130,7 @@ echo "(*******)"
        revision: "${GIT_COMMIT}", 
        appName: "Jpetstore", 
        requestor: "admin", 
-       id: "${newComponentVersionId}", 
+       id: "${majorVersion}", 
        versionName: "2.0.${BUILD_NUMBER}"
       )
      
