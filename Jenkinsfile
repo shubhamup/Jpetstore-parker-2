@@ -128,7 +128,7 @@ echo "(*******)"
  step($class: 'UploadBuild', 
        tenantId: "5ade13625558f2c6688d15ce", 
        revision: "${GIT_COMMIT}", 
-       appName: "Jpetstore", 
+       appName: "JPetStore-velocity", 
        requestor: "admin", 
        id: "${newComponentVersionId}", 
        versionName: "2.0.${BUILD_NUMBER}"
