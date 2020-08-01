@@ -136,7 +136,7 @@ echo "(*******)"
 //			 deployVersions: "JPetStorevelocityComponent:2.0.${BUILD_NUMBER}"], 
 //		siteName: 'UCD_Local'])
 
- }
+// }
 	
 stage ('wait for deploy') {
 	sleep 25
@@ -146,4 +146,4 @@ stage ('wait for deploy') {
 
 
 }
-}
+
