@@ -79,7 +79,7 @@ stage ("Appscan"){
 }
 	
 echo "(*******)"	
- stage('Publish Artificats to UCD'){
+ // stage('Publish Artificats to UCD'){
 	  
  //  step([$class: 'UCDeployPublisher',
 //	        siteName: 'UCD_Local',
