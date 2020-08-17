@@ -78,7 +78,8 @@ stage ("Appscan"){
 	//build job: 'Velocity/Jpetstore/asoc_ori', wait: false, parameters: [string(name: 'parentBuildNumber', value: majorVersion), string(name: 'previousBuildUrl', value: BUILD_URL),string(name: 'COMMITID', value: GIT_COMMIT)]
 }
 	
-echo "(*******)"	
+echo "(*******)"
+stage('Publish Artificats to UCD'){	
   step([$class: 'UCDeployPublisher',
 	        siteName: 'UCD_Local',
 	        component: [
