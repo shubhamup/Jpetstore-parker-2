@@ -94,7 +94,7 @@ stage('Publish Artificats to UCD'){
 	                $class: 'com.urbancode.jenkins.plugins.ucdeploy.DeliveryHelper$Push',
 	                pushVersion: '2.0.${BUILD_NUMBER}',
 	                //baseDir: '/var/jenkins_home/workspace/JPetStore/target',
-			 baseDir: 'D:/Installables/Jenkins/workspace/Velocity/Jpetstore-parker/target/',
+			 baseDir: 'D:/Installables/Jenkins/workspace/Velocity/Jpetstore/JPetStore-velocity/target/',
 	                fileIncludePatterns: '*.war',
 	                fileExcludePatterns: '',
 	               // pushProperties: 'jenkins.server=Jenkins-app\njenkins.reviewed=false',
