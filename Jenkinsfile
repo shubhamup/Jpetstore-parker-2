@@ -103,22 +103,21 @@ stage('Publish Artificats to UCD'){
 	        ]
      ])
 	  
-echo "(*******)"
+          echo "(*******)"
 	  echo "Demo1234 ${JPetStorevelocityComponent_VersionId}"
 	  def newComponentVersionId = "${JPetStorevelocityComponent_VersionId}"
 	  echo "git commit ${GIT_COMMIT}"
-}
-  stage ('Upload Build to Accelerate') {
-        step($class: 'UploadBuild', 
-        tenantId: "5ade13625558f2c6688d15ce", 
-        revision: "${GIT_COMMIT}", 
-        appName: "JPetStore-velocity", 
-        requestor: "admin", 
-        id: "${newComponentVersionId}", 
-        versionName: "2.0.${BUILD_NUMBER}"
+
+         step($class: 'UploadBuild', 
+         tenantId: "5ade13625558f2c6688d15ce", 
+         revision: "${GIT_COMMIT}", 
+         appName: "JPetStore-velocity", 
+         requestor: "admin", 
+         id: "${newComponentVersionId}", 
+         versionName: "2.0.${BUILD_NUMBER}"
       )
-	}
-  stage ('Deploy to DEV') {
+}
+	stage ('Deploy to DEV') {
 	step([$class: 'UCDeployPublisher',
 		deploy: [ createSnapshot: [deployWithSnapshot: true, 
 			 snapshotName: "2.0.${BUILD_NUMBER}"],
