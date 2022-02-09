@@ -18,7 +18,7 @@ node {
  
   stage ('Build') {
       withMaven(jdk: 'java1.8', maven: 'Maven3.6.0') {
-      sh 'mvn clean package'
+      bat 'mvn clean package'
 	      echo "**** ${GIT_COMMIT}"
 	//step($class: 'UploadBuild', tenantId: "5ade13625558f2c6688d15ce", revision: "${GIT_COMMIT}", appName: "JPetStore", requestor: "admin", id: "${newComponentVersionId}" )
 	
@@ -28,7 +28,7 @@ node {
   
   stage ('Junit Testcase'){
   withMaven(jdk: 'java1.8', maven: 'Maven3.6.0') {
-      sh 'mvn test -Dtest=Runner'	     
+      bat 'mvn test -Dtest=Runner'	     
     }
   }
 
@@ -58,7 +58,7 @@ node {
 		
 		withSonarQubeEnv('sonar-server'){
 			 //"SONAR_USER_HOME=/opt/bitnami/jenkins/.sonar ${mvnHome}/bin/mvn sonar:sonar"
-			sh  "mvn sonar:sonar -Dsonar.projectName=JpetStore-velocity"
+			bat  "mvn sonar:sonar -Dsonar.projectName=JpetStore-velocity"
 			//sh "${path}/bin/gradle --info -Dsonar.host.url=http://localhost:9000 sonarqube"
 		}
 	}
