@@ -58,7 +58,7 @@ node {
 		
 		withSonarQubeEnv('sonar-server'){
 			 //"SONAR_USER_HOME=/opt/bitnami/jenkins/.sonar ${mvnHome}/bin/mvn sonar:sonar"
-			sh  "mvn sonar:sonar -Dsonar.projectName=JpetStore-velocity"
+			bat  "mvn sonar:sonar -Dsonar.projectName=JpetStore-velocity"
 			//sh "${path}/bin/gradle --info -Dsonar.host.url=http://localhost:9000 sonarqube"
 		}
 	}
