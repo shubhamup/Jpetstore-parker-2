@@ -7,7 +7,7 @@ node {
   stage ('cloning the repository'){
 	  
       def scm = git 'https://github.com/jitendra-git123/Jpetstore-parker-2'
-	  GIT_COMMIT = bat(returnStdout: true, script: "git rev-parse HEAD").trim()
+	  GIT_COMMIT = sh(returnStdout: true, script: "git rev-parse HEAD").trim()
 	  echo "COMMITID ${GIT_COMMIT}"
 	  //echo "BBBB ${scm}"
 	  //GIT_COMMIT = scm.GIT_COMMIT
@@ -17,8 +17,8 @@ node {
 	
  
   stage ('Build') {
-      withMaven(jdk: 'java1.8', maven: 'Maven3.6.0') {
-      bat 'mvn clean package'
+      withMaven(jdk: 'java1.11', maven: 'Maven3.6.0') {
+      sh 'mvn clean package'
 	      echo "**** ${GIT_COMMIT}"
 	//step($class: 'UploadBuild', tenantId: "5ade13625558f2c6688d15ce", revision: "${GIT_COMMIT}", appName: "JPetStore", requestor: "admin", id: "${newComponentVersionId}" )
 	
@@ -27,8 +27,8 @@ node {
   }
   
   stage ('Junit Testcase'){
-  withMaven(jdk: 'java1.8', maven: 'Maven3.6.0') {
-      bat 'mvn test -Dtest=Runner'	     
+  withMaven(jdk: 'java1.11', maven: 'Maven3.6.0') {
+      sh 'mvn test -Dtest=Runner'	     
     }
   }
 
@@ -58,7 +58,7 @@ node {
 		
 		withSonarQubeEnv('sonar-server'){
 			 //"SONAR_USER_HOME=/opt/bitnami/jenkins/.sonar ${mvnHome}/bin/mvn sonar:sonar"
-			bat  "mvn sonar:sonar -Dsonar.projectName=JpetStore-velocity"
+			sh  "mvn sonar:sonar -Dsonar.projectName=JpetStore-velocity"
 			//sh "${path}/bin/gradle --info -Dsonar.host.url=http://localhost:9000 sonarqube"
 		}
 	}
