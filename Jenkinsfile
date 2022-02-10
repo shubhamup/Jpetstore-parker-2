@@ -28,7 +28,7 @@ node {
   
   stage ('Junit Testcase'){
   withMaven(jdk: 'java1.8', maven: 'Maven3.6.0') {
-      mat 'mvn test -Dtest=Runner'	     
+      bat 'mvn test -Dtest=Runner'	     
     }
   }
 
