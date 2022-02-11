@@ -20,7 +20,7 @@ node {
   stage ('Build') {
       withMaven(jdk: 'java1.8', maven: 'Maven3.6.0') {
       bat 'mvn clean package'
-	      echo "**** ${GIT_COMMIT}"
+	      echo "****** ${GIT_COMMIT}"
 	//step($class: 'UploadBuild', tenantId: "5ade13625558f2c6688d15ce", revision: "${GIT_COMMIT}", appName: "JPetStore", requestor: "admin", id: "${newComponentVersionId}" )
 	
 	     
