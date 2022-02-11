@@ -8,7 +8,7 @@ node {
 	  
       def scm = git 'https://github.com/jitendra-git123/Jpetstore-parker-2'
 	  //GIT_COMMIT = bat(returnStdout: true, script: "git rev-parse HEAD").trim()
-	  GIT_COMMIT = bat(returnStdout: true, script: "git rev-parse HEAD") do set GITHASH=%%i
+	  GIT_COMMIT = (returnStdout: true, script: "@echo off | git --git-dir=${WORKSPACE}\\.git rev-parse origin/${branch}").trim()
 	  echo "COMMITID ${GIT_COMMIT}"
 	  //echo "BBBB ${scm}"
 	  //GIT_COMMIT = scm.GIT_COMMIT
