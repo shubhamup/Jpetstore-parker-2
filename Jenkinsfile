@@ -126,7 +126,7 @@ stage('Publish Artificats to UCD'){
 			 deployDesc: 'Requested from Jenkins', 
 			 deployEnv: 'JPetStore-velocity_Dev', 
 			 deployOnlyChanged: false, 
-			 deployProc: 'Deploy-JPetStore-velocity', 
+			 deployProc: 'Deploy-JpetStore-velocity', 
 			 deployReqProps: '', 
 			 deployVersions: "JPetStorevelocityComponent:2.0.${BUILD_NUMBER}"], 
 		siteName: 'UCD_Local'])
