@@ -18,7 +18,7 @@ node {
 	
  
   stage ('Build') {
-      withMaven(jdk: 'java11, maven: 'Maven 3.8.6') {
+      withMaven(jdk: 'java11', maven: 'Maven 3.8.6') {
       
       sh 'mvn clean package'
       echo "****${GIT_COMMIT}"
