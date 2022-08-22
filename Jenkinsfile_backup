@@ -29,7 +29,7 @@ node {
   }
   
   stage ('Junit Testcase'){
-      withMaven(jdk: 'java11', maven: 'Maven 3.8.6') {
+      withMaven(jdk: 'java1.8', maven: 'Maven 3.8.6') {
       sh 'mvn test -Dtest=Runner'	     
     }
   }
