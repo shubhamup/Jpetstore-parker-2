@@ -130,7 +130,7 @@ stage('Publish Artificats to Launch'){
 			 deployProc: 'deployWeb', 
 			 deployReqProps: '', 
 			 deployVersions: "JPetStoreWebComp:2.0.${BUILD_NUMBER}"], 
-		siteName: 'UCD_Local'])
+		siteName: 'launch'])
  }
 	
 stage ('wait for deploy') {
