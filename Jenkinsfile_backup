@@ -90,7 +90,7 @@ stage('Publish Artificats to Launch'){
 	            createComponent: [
 	                $class: 'com.urbancode.jenkins.plugins.ucdeploy.ComponentHelper$CreateComponentBlock',
 	                componentTemplate: '',
-	                componentApplication: 'JPetStoreWebComp'
+	                componentApplication: 'JPetStore'
 	            ],
 	            delivery: [
 	                $class: 'com.urbancode.jenkins.plugins.ucdeploy.DeliveryHelper$Push',
