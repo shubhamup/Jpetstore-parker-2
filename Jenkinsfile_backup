@@ -75,7 +75,7 @@ stage ("Appscan"){
 // //	 string(name: 'parentBuildNumber', value: BUILD_NUMBER)
 	//string(name: 'parentBuildNumber', value: "2.0.${BUILD_NUMBER}")
 		
-	]
+//	]
 	
 	//build job: 'Velocity/Jpetstore/asoc_ori', wait: false, parameters: [string(name: 'parentBuildNumber', value: majorVersion), string(name: 'previousBuildUrl', value: BUILD_URL),string(name: 'COMMITID', value: GIT_COMMIT)]
 }
