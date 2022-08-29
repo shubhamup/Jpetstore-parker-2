@@ -59,17 +59,17 @@ node {
 	//	def path = tool name: 'gradle4.7', type: 'gradle'
 		
 		withSonarQubeEnv('sonar-server'){
-	//		 //"SONAR_USER_HOME=/opt/bitnami/jenkins/.sonar ${mvnHome}/bin/mvn sonar:sonar"
+			 //"SONAR_USER_HOME=/opt/bitnami/jenkins/.sonar ${mvnHome}/bin/mvn sonar:sonar"
 			sh  "mvn sonar:sonar -Dsonar.projectName=JpetStore"
-       // //		sh "${path}/bin/gradle --info -Dsonar.host.url=http://localhost:9000 sonarqube"
+       //		sh "${path}/bin/gradle --info -Dsonar.host.url=http://localhost:9000 sonarqube"
 		}
 	
 	
 	    def mvn = tool 'Maven3.6.0';
-    withSonarQubeEnv(jdk: 'java1.8', maven: 'Maven3.6.0') {
+    // withSonarQubeEnv(jdk: 'java1.8', maven: 'Maven3.6.0') {
       // sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=JPetstore"
-      sh "mvn clean verify sonar:sonar -Dsonar.projectKey=JPetstore"
-    }
+    //  sh "mvn clean verify sonar:sonar -Dsonar.projectKey=JPetstore"
+    // }
  
 	}
 	
