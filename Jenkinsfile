@@ -119,17 +119,17 @@ stage('Publish Artificats to UCD'){
       )
 }
 	stage ('Deploy to DEV') {
-	step([$class: 'UCDeployPublisher',
-		deploy: [ createSnapshot: [deployWithSnapshot: true, 
-			 snapshotName: "2.0.${BUILD_NUMBER}"],
-			 deployApp: 'JPetStore-velocity', 
-			 deployDesc: 'Requested from Jenkins', 
-			 deployEnv: 'JPetStore-velocity_Dev', 
-			 deployOnlyChanged: false, 
-			 deployProc: 'Deploy-JpetStore-velocity', 
-			 deployReqProps: '', 
-			 deployVersions: "JPetStorevelocityComponent:2.0.${BUILD_NUMBER}"], 
-		siteName: 'UCD_Local'])
+//	step([$class: 'UCDeployPublisher',
+//		deploy: [ createSnapshot: [deployWithSnapshot: true, 
+//			 snapshotName: "2.0.${BUILD_NUMBER}"],
+//			 deployApp: 'JPetStore-velocity', 
+//			 deployDesc: 'Requested from Jenkins', 
+//			 deployEnv: 'JPetStore-velocity_Dev', 
+//			 deployOnlyChanged: false, 
+//			 deployProc: 'Deploy-JpetStore-velocity', 
+//			 deployReqProps: '', 
+//			 deployVersions: "JPetStorevelocityComponent:2.0.${BUILD_NUMBER}"], 
+//		siteName: 'UCD_Local'])
  }
 	
 stage ('wait for deploy') {
