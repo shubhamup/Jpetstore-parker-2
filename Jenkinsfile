@@ -32,6 +32,25 @@ node {
       sh 'mvn test -Dtest=Runner'	     
     }
   }
+echo("************************** Test Result Upload Started to Velocity****************************")
+                        try{
+                        step([$class: 'UploadJUnitTestResult',
+                            properties: [
+                        // Need to change the path of the test result xml result required.               
+                                filePath: "target/surefire-reports/TEST-org.mybatis.jpetstore.service.OrderServiceTest.xml",
+                                tenant_id: "5ade13625558f2c6688d15ce",
+                                appName: "LTFS_IIB_Deploy",
+                                //appExtId: "4b006cdb-0e50-43f2-ac87-a7586a65389e",
+			        appExtId: "276187b9-aa91-405e-9747-553ae8ee979c",
+				//appId: "acdfae67-616f-43e5-8872-2cfa3aa583de",    
+                                name: "Executed in JUnit - 1.0.${BUILD_NUMBER}",
+                                testSetName: "Junit Test Run from Jenkins"]
+                           
+                        ])}catch(e){
+                        throw e
+                        }
+                       
+            echo("************************** Test Result Uploaded Successful to Velocity****************************")
 	
 	stage('SonarQube Analysis'){
 	//	def mvnHome = tool name : 'Maven3.6.0', type:'maven'
@@ -70,7 +89,7 @@ stage('Publish Artificats to UCD'){
 	            ]
 	        ]
      ])
-	  
+	  stage ('Upload Build) {
           echo "(*******)"
 	  echo "Demo1234 ${IIBDeploy_VersionId}"
 	  def newComponentVersionId = "${IIBDeploy_VersionId}"
@@ -84,6 +103,8 @@ stage('Publish Artificats to UCD'){
          id: "${newComponentVersionId}", 
          versionName: "1.0.${BUILD_NUMBER}"
       )
+		  
+	  }
 }
 	//stage ('Deploy to DEV') {
 //	step([$class: 'UCDeployPublisher',
