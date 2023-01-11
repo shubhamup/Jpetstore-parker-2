@@ -66,7 +66,7 @@ echo("************************** Test Result Upload Started to Velocity*********
 	
 	
 echo "(*******)"
-stage('Publish Artificats to UCD'){	
+stage('Publish Artificats to Launch'){	
   step([$class: 'UCDeployPublisher',
 	        siteName: 'UCD',
 	        component: [
@@ -89,7 +89,8 @@ stage('Publish Artificats to UCD'){
 	            ]
 	        ]
      ])
-	
+}
+	stage ('Upload Build To Accelerate'){
           echo "(*******)"
 	  echo "Demo1234 ${IIBDeploy_VersionId}"
 	  def newComponentVersionId = "${IIBDeploy_VersionId}"
@@ -103,9 +104,9 @@ stage('Publish Artificats to UCD'){
          id: "${newComponentVersionId}", 
          versionName: "1.0.${BUILD_NUMBER}"
       )
-		  
+	}		  
 	
-}
+
 	//stage ('Deploy to DEV') {
 //	step([$class: 'UCDeployPublisher',
 //		deploy: [ createSnapshot: [deployWithSnapshot: true, 
