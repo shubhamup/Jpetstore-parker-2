@@ -19,7 +19,7 @@ node {
  
   stage ('Build') {
       withMaven(jdk: 'java1.8', maven: 'Maven3.6.0') {
-      bat 'mvn clean package'
+      sh 'mvn clean package'
 	      echo "****${GIT_COMMIT}"
 	//step($class: 'UploadBuild', tenantId: "5ade13625558f2c6688d15ce", revision: "${GIT_COMMIT}", appName: "JPetStore", requestor: "admin", id: "${newComponentVersionId}" )
 	
@@ -29,7 +29,7 @@ node {
   
   stage ('Junit Testcase'){
   withMaven(jdk: 'java1.8', maven: 'Maven3.6.0') {
-      bat 'mvn test -Dtest=Runner'	     
+      sh 'mvn test -Dtest=Runner'	     
     }
   }
 
@@ -38,7 +38,7 @@ node {
                         step([$class: 'UploadJUnitTestResult',
                             properties: [
                         // Need to change the path of the test result xml result required.               
-                                filePath: "target/surefire-reports/TEST-org.mybatis.jpetstore.service.OrderServiceTest.xml",
+                                filePath: "target/surefire-reports/TEST-org.myshis.jpetstore.service.OrderServiceTest.xml",
                                 tenant_id: "5ade13625558f2c6688d15ce",
                                 appName: "JPetStore-velocity",
                                 //appExtId: "4b006cdb-0e50-43f2-ac87-a7586a65389e",
@@ -59,7 +59,7 @@ node {
 		
 		withSonarQubeEnv('sonar-server'){
 			 //"SONAR_USER_HOME=/opt/bitnami/jenkins/.sonar ${mvnHome}/bin/mvn sonar:sonar"
-			bat  "mvn sonar:sonar -Dsonar.projectName=JpetStore-velocity"
+			sh  "mvn sonar:sonar -Dsonar.projectName=JpetStore-velocity"
 			//sh "${path}/bin/gradle --info -Dsonar.host.url=http://localhost:9000 sonarqube"
 		}
 	}
