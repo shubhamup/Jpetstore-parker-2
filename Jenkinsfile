@@ -1,8 +1,8 @@
 node {
-        def majorVersion="2.0.${BUILD_NUMBER}"
+        def majorVersion="1.0.${BUILD_NUMBER}"
 	currentBuild.displayName = majorVersion
-       // def BUILD_NUMBER="2.0.${BUILD_NUMBER}"
-	//currentBuild.displayName = "2.0.${BUILD_NUMBER}"
+       // def BUILD_NUMBER="1.0.${BUILD_NUMBER}"
+	//currentBuild.displayName = "1.0.${BUILD_NUMBER}"
 	def GIT_COMMIT
   stage ('cloning the repository'){
 	  
@@ -18,7 +18,7 @@ node {
 	
  
   stage ('Build') {
-      withMaven(jdk: 'java1.8', maven: 'Maven3.0.5') {
+      withMaven() {
       sh 'mvn clean package'
 	      echo "****${GIT_COMMIT}"
 	//step($class: 'UploadBuild', tenantId: "5ade13625558f2c6688d15ce", revision: "${GIT_COMMIT}", appName: "JPetStore", requestor: "admin", id: "${newComponentVersionId}" )
