@@ -89,7 +89,7 @@ stage('Publish Artificats to UCD'){
 	            ]
 	        ]
      ])
-	  stage ('Upload Build) {
+	
           echo "(*******)"
 	  echo "Demo1234 ${IIBDeploy_VersionId}"
 	  def newComponentVersionId = "${IIBDeploy_VersionId}"
@@ -104,7 +104,7 @@ stage('Publish Artificats to UCD'){
          versionName: "1.0.${BUILD_NUMBER}"
       )
 		  
-	  }
+	
 }
 	//stage ('Deploy to DEV') {
 //	step([$class: 'UCDeployPublisher',
