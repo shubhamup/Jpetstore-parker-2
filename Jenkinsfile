@@ -52,7 +52,7 @@ stage('Publish Artificats to UCD'){
 	        siteName: 'UCD',
 	        component: [
 	            $class: 'com.urbancode.jenkins.plugins.ucdeploy.VersionHelper$VersionBlock',
-	            componentName: 'LTFS_IIB_Deploy',
+	            componentName: 'IIBDeploy',
 	            createComponent: [
 	                $class: 'com.urbancode.jenkins.plugins.ucdeploy.ComponentHelper$CreateComponentBlock',
 	                componentTemplate: '',
@@ -72,8 +72,8 @@ stage('Publish Artificats to UCD'){
      ])
 	  
           echo "(*******)"
-	  echo "Demo1234 ${LTFS_IIB_Deploy_VersionId}"
-	  def newComponentVersionId = "${LTFS_IIB_Deploy_VersionId}"
+	  echo "Demo1234 ${IIBDeploy_VersionId}"
+	  def newComponentVersionId = "${IIBDeploy_VersionId}"
 	  echo "git commit ${GIT_COMMIT}"
 
          step($class: 'UploadBuild', 
