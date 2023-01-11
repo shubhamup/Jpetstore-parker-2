@@ -37,9 +37,9 @@ node {
 	//	def mvnHome = tool name : 'Maven3.6.0', type:'maven'
 		//def path = tool name: 'gradle-4.7', type: 'gradle'
 		
-		withSonarQubeEnv('sonar-server'){
+		withSonarQubeEnv('Sonarqube 8.2'){
 			 //"SONAR_USER_HOME=/opt/bitnami/jenkins/.sonar ${mvnHome}/bin/mvn sonar:sonar"
-		//	sh  "mvn sonar:sonar -Dsonar.projectName=JpetStore-velocity"
+			sh  "mvn sonar:sonar -Dsonar.projectName=JpetStore-velocity"
 			//sh "${path}/bin/gradle --info -Dsonar.host.url=http://localhost:9000 sonarqube"
 		}
 	}
